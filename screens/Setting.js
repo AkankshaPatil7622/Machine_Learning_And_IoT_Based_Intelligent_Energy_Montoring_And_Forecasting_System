@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import TopHeader from "../components/TopHeader";
 import SmallCards from "@/components/SmallCards";
-import { scale } from "react-native-size-matters";
+import { scale, verticalScale } from "react-native-size-matters";
 import Feather from "@expo/vector-icons/Feather";
 import {
   useAnimatedStyle,
@@ -12,6 +12,7 @@ import {
 import Animated from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from "../screens/redux/Action";
+import Entypo from "@expo/vector-icons/Entypo";
 
 export const getStyle = (theme, colors) => ({
   container: {
@@ -59,6 +60,8 @@ const Setting = () => {
       transform: [{ translateX: animation.value }],
     };
   });
+
+  const handleLogout = () => {};
   return (
     <View style={styles.container}>
       <TopHeader headerTitle="Setting" />
@@ -76,6 +79,12 @@ const Setting = () => {
             </Animated.View>
           </TouchableOpacity>
         </View>
+
+        {/* <SmallCards title="Logout" />
+
+        <TouchableOpacity
+        onPress={handleLogout}
+        ></TouchableOpacity> */}
       </View>
     </View>
   );
@@ -83,7 +92,23 @@ const Setting = () => {
 
 export default Setting;
 const styles = StyleSheet.create({
-  container1 : {
-    flex : 1
-  } 
-})
+  container1: {
+    flex: 1,
+  },
+  logoutBtn: {
+    height: verticalScale(50), // Adjusted height for better touch interaction
+    width: scale(200), // Adjusted width for a better size
+    justifyContent: "center", // Centering the icon inside the button
+    alignItems: "center", // Centering the icon inside the button
+    backgroundColor: "#f0f0f0", // Light background for logout button
+    borderRadius: scale(10), // Rounded corners for the button
+  },
+  logouticonview: {
+    flexDirection: "row", // Makes sure the icon is aligned with text (if any)
+    justifyContent: "center", // Aligns the icon horizontally in the center
+    alignItems: "center", // Aligns the icon vertically in the center
+    paddingVertical: verticalScale(5), // Adds vertical padding for a better layout
+    backgroundColor: "#fff", // White background for the icon view
+    borderRadius: scale(50), // Circular shape for the icon container
+  },
+});

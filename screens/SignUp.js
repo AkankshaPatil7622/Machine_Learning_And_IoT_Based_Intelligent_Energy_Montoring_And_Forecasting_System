@@ -10,38 +10,40 @@ import {
 } from "react-native";
 import { scale, verticalScale } from "react-native-size-matters";
 import {api} from "@/api/api"
+import axios from "axios";
 
 const SignUp = ({ navigation }) => {
   const [formData, setFormData] = useState({
-    fullName : "",
+    name : "",
     mobile : "",
     state : "",
     city : "",
     district : "",
-    pincode : "",
+    pinCode : "",
     email : "",
     password : "",
     meterId : "",
     connectionType : "",
     location : "",
-    contactNo : "",
-    em1 : "",
-    em2 : ""
+    fireContactNo: "",
+    emergencyContact1 : "",
+    emergencyContact2 : ""
   });
 
   const handleRegister = async () => {
     try {
-      const response = await api.post("/register", JSON.stringify(formData),{
-        headers: { "Content-Type": "application/json" },
-      }); // Call API
+
+      const response = await axios.post("http://192.168.169.128:5000/signup",formData,{ headers: { "Content-Type": "application/json" }})
+     console.log(response);
       Alert.alert("Success", "Registered successfully!");
-      navigation.navigate("LoginScreen"); // Redirect to Login
+      navigation.navigate("login"); // Redirect to Login
     } catch (error) {
+      console.error(error)
       Alert.alert("Error", error.response?.data?.message || "Registration failed");
     }
   };
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor : "#f5f5ff"}}>
       <View>
         <Text style={styles.signUp}>Sign Up</Text>
 
@@ -53,11 +55,11 @@ const SignUp = ({ navigation }) => {
           <Text style={styles.label}> Full Name</Text>
           <View style={styles.textField}>
             <TextInput placeholder="Enter Full Name"
-            value={formData.fullName}
-            onChangeText={(text)=>setFormData({...formData, fullName : text})} />
+            value={formData.name}
+            onChangeText={(text)=>setFormData({...formData, name : text})} />
           </View>
 
-          <Text style={styles.label}> Mobile Number</Text>
+           <Text style={styles.label}> Mobile Number</Text>
           <View style={styles.textField}>
             <TextInput
               placeholder="Enter Mobile Number"
@@ -91,21 +93,27 @@ const SignUp = ({ navigation }) => {
 
           <Text style={styles.label}>Pin Code</Text>
           <View style={styles.textField}>
-            <TextInput placeholder="Enter Pin Code" maxLength={6}
-            value={formData.pincode}
-            onChangeText={(text)=>setFormData({...formData, pincode : text})} />
-          </View>
+            <TextInput placeholder="Enter Pin Code"
+            maxLength={6}
+            value={formData.pinCode}
+            keyboardType="numeric"
+            onChangeText={(text)=>setFormData({...formData, pinCode : text})} />
+          </View> 
 
           <Text style={styles.label}> Email Id</Text>
           <View style={styles.textField}>
             <TextInput placeholder="Enter Email Id" 
             value={formData.email}
-            onChangeText={(text)=>setFormData({...formData, email : text})}/>
+            onChangeText={(text)=>setFormData({...formData, email : text})}
+             keyboardType="email-address"
+             autoCapitalize="none"
+             autoComplete="email"
+            />
           </View>
 
           <Text style={styles.label}> Password</Text>
           <View style={styles.textField}>
-            <TextInput placeholder="Create password " maxLength={8}
+            <TextInput placeholder="Create 8 length password " maxLength={8}
             value={formData.password}
             onChangeText={(text)=>setFormData({...formData, password : text})}
             secureTextEntry />
@@ -143,8 +151,10 @@ const SignUp = ({ navigation }) => {
           <Text style={styles.label}> Contact Number</Text>
           <View style={styles.textField}>
             <TextInput placeholder="Contact Number"
-            value={formData.contactNo}
-            onChangeText={(text)=>setFormData({...formData, contactNo : text})} />
+            value={formData.fireContactNo}
+            keyboardType="numeric"
+            maxLength={10}
+            onChangeText={(text)=>setFormData({...formData, fireContactNo : text})} />
           </View>
 
           <View style={styles.breaker}>
@@ -157,8 +167,8 @@ const SignUp = ({ navigation }) => {
               placeholder="Enter Emergency Contact 1"
               maxLength={10}
               keyboardType="numeric"
-              value={formData.em1}
-              onChangeText={(text)=>setFormData({...formData, em1 : text})}
+              value={formData.emergencyContact1}
+              onChangeText={(text)=>setFormData({...formData, emergencyContact1 : text})}
             />
           </View>
 
@@ -168,12 +178,12 @@ const SignUp = ({ navigation }) => {
               placeholder="Enter Emergency Contact 2"
               maxLength={10}
               keyboardType="numeric"
-              value={formData.em2}
-              onChangeText={(text)=>setFormData({...formData, em2 : text})}
+              value={formData.emergencyContact2}
+              onChangeText={(text)=>setFormData({...formData, emergencyContact2 : text})}
             />
           </View>
 
-          <TouchableOpacity style={styles.btn} onPress={handleRegister}>
+          <TouchableOpacity style={styles.btn} onPress={()=>handleRegister()}>
             <Text style={styles.breakerText}>Sign Up</Text>
           </TouchableOpacity>
           <Text style={styles.blwBtnTxt}>

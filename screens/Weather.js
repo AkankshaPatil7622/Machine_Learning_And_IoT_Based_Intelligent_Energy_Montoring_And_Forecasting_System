@@ -58,7 +58,7 @@ const Weather = () => {
       <Card title="Temperature" value={weatherData.temperature} />
       <Card title="Pressure" value={weatherData.pressure} />
       <Card title="Humidity" value={weatherData.humidity} />
-      <Card title="Rainfall" value="45 %" />
+      {/* <Card title="Rainfall" value="45 %" /> */}
     </View>
 
     // </LinearGradient>

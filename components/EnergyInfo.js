@@ -5,7 +5,7 @@ import Card from '../components/Card';
 import { createStackNavigator } from '@react-navigation/stack';
 import EnergyInsight from '../screens/EnergyInsight';
 import Octicons from '@expo/vector-icons/Octicons';
-import { scale } from 'react-native-size-matters';
+import { moderateScale, moderateVerticalScale, scale, verticalScale } from 'react-native-size-matters';
 import Header from '../components/Header';
 import Foundation from '@expo/vector-icons/Foundation';
 import { useSelector } from 'react-redux';
@@ -33,21 +33,22 @@ cardContainer : {
  
 },
 viewBtn : {
-  height : scale(30),
+  height : verticalScale(30),
   width : scale(100),
   position : "absolute",
   marginHorizontal : scale(22),
-  bottom :scale(10),
+  bottom :verticalScale(29),
   backgroundColor : "#1db954",
-  borderRadius : scale(10)
+  borderRadius : scale(10),
+  justifyContent : "center"
 },
 
 btnText : {
   textAlign : "center",
   fontWeight : '500',
   color : "#000",
-  fontSize : scale(15),
-  marginVertical : scale(3)
+  fontSize : moderateScale(15),
+  
 }
 
 })
@@ -68,8 +69,8 @@ const EnergyInfo = ({navigation})=> {
     </TouchableOpacity>
     {/* <Foundation name="graph-trend" size={60} color="black" style={styles.graphIcon} />     */}
     </View>
-    <Card title="Prediction of Current Month" value={predicted} />
-    
+    {/* <Card title="Prediction of Current Month" value={predicted} />
+    <Card title="Current Unit Consumption" value="23 units" /> */}
     </View>
     </View>
   )

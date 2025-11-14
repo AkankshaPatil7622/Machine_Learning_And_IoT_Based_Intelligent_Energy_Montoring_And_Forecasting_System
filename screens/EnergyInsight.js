@@ -10,8 +10,8 @@ import {
 import { LineChart } from "react-native-chart-kit";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
-import jsonData from "../components/data.json"; // History data
-import predictionData from "../components/prediction1.json"; // Prediction data
+import jsonData from "../src/data/data.json"; // History data
+import predictionData from "../src/data/prediction1.json"; // Prediction data
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 import * as ScreenOrientation from "expo-screen-orientation";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -308,14 +308,14 @@ const EnergyInsight = ({ navigation }) => {
                 <Text style={styles.buttonText}>Daily Consumption</Text>
               </TouchableOpacity>
 
-              {selectedCategory === "History" && (
+              {/* {selectedCategory === "History" && (
                 <TouchableOpacity
                   style={styles.additionalButton}
                   onPress={showDatePicker}
                 >
                   <Text style={styles.buttonText}>Select Date</Text>
                 </TouchableOpacity>
-              )}
+              )} */}
             </View>
           )}
 

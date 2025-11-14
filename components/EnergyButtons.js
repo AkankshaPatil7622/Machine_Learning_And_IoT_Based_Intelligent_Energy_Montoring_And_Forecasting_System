@@ -2,10 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet,TouchableOpacity } from "react-native";
 import { scale } from "react-native-size-matters";
 
-const EnergyButtons = ({title,style}) => {
+const EnergyButtons = ({title,style,onpress}) => {
   return (
     <View>
-      <TouchableOpacity style={[styles.mainBtn,style]}>
+      <TouchableOpacity style={[styles.mainBtn,style]} onPress={onpress}>
         <Text style={styles.btnText}>{title}</Text>
       </TouchableOpacity>
     </View>

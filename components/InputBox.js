@@ -9,7 +9,8 @@ const InputBox = ({
   autoComplete,
   value,
   setValue,
-  secureTextEntry
+  secureTextEntry,
+  autoCapitalize
 }) => {
   return (
     <View>
@@ -23,6 +24,7 @@ const InputBox = ({
         value={value}
         onChangeText={(text) => setValue(text)}
         secureTextEntry={secureTextEntry}
+        autoCapitalize={autoCapitalize}
       ></TextInput>
     </View>
   );

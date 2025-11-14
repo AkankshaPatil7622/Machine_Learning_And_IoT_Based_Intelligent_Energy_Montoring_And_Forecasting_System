@@ -53,12 +53,12 @@ const IoT = () => {
   return (
    
       <View style={styles.container}>
-        <View style={styles.cardBox}>
+        {/* <View style={styles.cardBox}>
           <Text style={styles.cardTitle}>Device Status</Text>
           <Text style={styles.cardValue}>online</Text>
-        </View>
+        </View> */}
         <Card title="Voltage" value="240 volts" />
-        <Card title="Current Unit Consumption" value="43 units" />
+        <Card title="Current Unit Consumption" value="23 units" />
         <Card title="Wire Temperature" value="25 °C" />
       </View>
     )

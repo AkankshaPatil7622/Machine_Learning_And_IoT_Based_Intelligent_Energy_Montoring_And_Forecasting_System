@@ -11,6 +11,10 @@ import UpdateProfile from "@/screens/UpdateProfile";
 import Help from "@/screens/Help";
 import SplashScreen from "@/screens/SplashScreen";
 import SignUp from "@/screens/SignUp";
+import FireBaseData from "@/components/FireBaseData"
+
+
+
 const Stack = createNativeStackNavigator();
 export default function RouteLayout() {
   return(

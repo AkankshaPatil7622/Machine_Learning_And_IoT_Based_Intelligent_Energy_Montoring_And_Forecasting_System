@@ -28,19 +28,24 @@ const Login = ({ navigation }) => {
       if (!email || !password) {
         setLoading(false);
         Alert.alert("Warning", "Please fill all the fields");
-
         return;
       }
+
+      const { data } = await axios.post("http://192.168.169.128:5000/login", {
+        email,
+        password,
+      });
       setLoading(false);
-      const { data } = await axios.post(
-        "http://192.168.219.128:6000/api/v1/auth/login",
-        { email, password }
-      );
-      alert(data && data.messege);
+      Alert.alert("Success", "Login successful!");
+      navigation.replace('mainscreen'); // Redirect to Home or Dashboard after login
+
+      // alert(data && data.messege);
     } catch (error) {
-      alert(error.response.data.messege);
       setLoading(false);
-      console.warn(error);
+      const errorMessage =
+      error.response?.data?.messege || "Invalid credentials";
+    Alert.alert("Error", errorMessage);
+    console.warn(error);
     }
   };
   return (
@@ -60,6 +65,7 @@ const Login = ({ navigation }) => {
         title="Email"
         placeholder="Email"
         keyboardType="email-address"
+        autoCapitalize="none"
         autoComplete="email"
         value={email}
         setValue={setEmail}
@@ -83,6 +89,7 @@ const Login = ({ navigation }) => {
           onPress={() => navigation.navigate("signup")}
         >
           Register
+          
         </Text>
       </Text>
     </ScrollView>

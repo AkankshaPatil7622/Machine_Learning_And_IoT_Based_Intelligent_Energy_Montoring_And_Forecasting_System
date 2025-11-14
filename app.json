@@ -3,6 +3,7 @@
     "name": "PowerForeSight",
     "slug": "PowerForeSight",
     "version": "1.0.0",
+    "sdkVersion": "50.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -15,7 +16,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.powerforesight5.PowerForeSight",
+       "jsEngine": "hermes"
     },
     "web": {
       "bundler": "metro",
@@ -32,11 +35,18 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-       
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4985082b-775a-4185-b971-e85bcc3b3baa"
+      }
     }
   }
 }

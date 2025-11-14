@@ -65,14 +65,14 @@ const MainScreen = () => {
           </DrawerWrapper>
         )}
       </Drawer.Screen>
-
+{/* 
       <Drawer.Screen name="Notifications">
         {(props) => (
           <DrawerWrapper navigation={props.navigation}>
             <Notifications {...props} />
           </DrawerWrapper>
         )}
-      </Drawer.Screen>
+      </Drawer.Screen> */}
 
       {/* <Drawer.Screen name="Energy Insight" component={EnergyStack} /> */}
      

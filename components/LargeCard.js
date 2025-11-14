@@ -41,7 +41,7 @@ const LargeCard = () => {
     <Image source={require('@/assets/images/profile.jpg')} style={styles.img}/>
    <View style={{justifyContent : "center", alignItems : "center", marginTop : scale(10)}}>
    <Text style={styles.usernameText}>Akanksha Patil</Text>
-   <Text style={styles.emailText}>akankshapatil7622@gmail.com</Text>
+   <Text style={styles.emailText}>akanksha123@gmail.com</Text>
    </View>
    </View>
   )

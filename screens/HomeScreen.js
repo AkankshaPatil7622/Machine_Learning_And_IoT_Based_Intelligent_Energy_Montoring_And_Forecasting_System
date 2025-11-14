@@ -15,6 +15,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { scale } from "react-native-size-matters";
 import { useSelector } from "react-redux";
 import { useFocusEffect } from "@react-navigation/native";
+import GraphScreen from "./GraphScreen";
 const Tab = createBottomTabNavigator();
 
 const getStyle = (theme, color) => {
@@ -108,7 +109,7 @@ let lightColor = "#1db954";
       <Tab.Screen name="Energy Consumption and Cost" component={Home} />
       <Tab.Screen name="Weather" component={Weather} />
       <Tab.Screen name="Energy Insight" component={EnergyStack} />
-      <Tab.Screen name="IoT" component={IoT} />
+      {/* <Tab.Screen name="IoT" component={IoT} /> */}
       <Tab.Screen name="Account" component={Account} />
     </Tab.Navigator>
   );

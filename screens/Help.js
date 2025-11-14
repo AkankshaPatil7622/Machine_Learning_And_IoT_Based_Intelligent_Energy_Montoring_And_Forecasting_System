@@ -124,9 +124,8 @@ const Help = () => {
             <Text style={styles.content2}>
               1. Tap on graph points for detailed insights into daily energy
               usage.{"\n"}
-              2. Regularly check the IoT Device Status to ensure proper energy
-              monitoring.{"\n"}3. Enable Notifications to stay updated on
-              emergency alerts.{"\n"}4. Customize the app theme in Settings for
+             2. Enable Notifications to stay updated on
+              emergency alerts.{"\n"}3. Customize the app theme in Settings for
               a personalized experience.
             </Text>
 
